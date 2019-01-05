@@ -7,6 +7,8 @@ var Article = require("./models/Article.js");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/nytreact";
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
@@ -14,24 +16,18 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("./public"));
 
-var link = process.env.MONGODB_URI || "mongodb://localhost/nytreact";
-//Local link
-// var link = 'mongodb://localhost/nytreact';
-
+mongoose.Promise = Promise;
 mongoose
-  .connect(link)
-  .then(() => console.log("MongoDB connected"))
-  .catch(err => console.log(err));
-
-var db = mongoose.connection;
-
-db.on("error", function(err) {
-  console.log("Mongoose Error: ", err);
-});
-
-db.once("open", function() {
-  console.log("Mongoose connection successful.");
-});
+  .connect(
+    MONGODB_URI,
+    { useNewUrlParser: true }
+  )
+  .then(connection => {
+    console.log("Connected to Mongo!");
+  })
+  .catch(err => {
+    console.log(err.message);
+  });
 
 app.get("/", function(req, res) {
   res.sendFile("./public/index.html");

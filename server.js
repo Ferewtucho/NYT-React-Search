@@ -14,8 +14,12 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("./public"));
 
+var link = process.env.MONGODB_URI || "mongodb://localhost/nytreact";
+//Local link
+// var link = 'mongodb://localhost/nytreact';
+
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost/nytreact")
+  .connect(link)
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
 

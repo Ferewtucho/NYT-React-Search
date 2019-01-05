@@ -5,6 +5,8 @@ This app lets the user find articles relating to a search term from the New York
 In order to use it, clone the repo to your local device and run npm install. Be sure to have mongoDB connected and open Git Bash. Run the command node server.js & webpack -w when you are in your local file.
 
 <hr>
+<img src="./public/images/nyt.png" alt = "nyt">
+<hr>
 <h2>Developed Using</h2>
 
 <ul>

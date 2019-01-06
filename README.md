@@ -18,4 +18,4 @@ In order to use it, clone the repo to your local device and run npm install. Be 
 <li>New York Times API</li>
 </ul>
 
-<h6><strong>Live Demo Click<a href = "https://pacific-crag-15032.herokuapp.com/#/search?_k=yn6e0j" target ="_blank">HERE</a></strong>.</h6>
+<h6><strong>Live Demo Click<a href = "https://limitless-atoll-22191.herokuapp.com/#/?_k=pod7yd" target ="_blank">HERE</a></strong>.</h6>
